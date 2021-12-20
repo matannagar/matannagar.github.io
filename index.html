@@ -55,7 +55,10 @@
             document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
+                var obj = document.createElement("span");
+                obj.id = i;
+                obj.style.cssText = "background-color:" + random_bg_color() + ";font-family: 'Raleway',sans-serif;font-weight: 800";
+                labelContainer.appendChild(obj);
             }
         }
 
@@ -64,9 +67,18 @@
             await predict();
             window.requestAnimationFrame(loop);
         }
-
+        // Make button dissapear on click
         async function pop() {
             document.getElementById('cam_button').style.display = 'none';
+        }
+        // Generate background color
+        function random_bg_color() {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+            return bgColor.toString()
         }
 
         // run the webcam image through the image model

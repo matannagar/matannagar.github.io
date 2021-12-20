@@ -4,6 +4,12 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+
+  background: url(background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 button {
   display: inline-block;
@@ -41,4 +47,8 @@ button:active {
 .cell {
   display: table-cell;
   vertical-align: middle;
+}
+
+span {
+  background-color: rgb(158, 32, 32);
 }
